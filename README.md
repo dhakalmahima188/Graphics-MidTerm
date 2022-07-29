@@ -1,2 +1,2 @@
 # MidTerm
-#Rendering using Graphics.h
+# Rendering using Graphics.h
