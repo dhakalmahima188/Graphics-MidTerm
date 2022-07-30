@@ -1,11 +1,8 @@
-//
-//
 //#include "olcConsoleGameEngine.h"
 //#include <fstream>
 //#include <strstream>
 //#include <algorithm>
 //using namespace std;
-//
 //
 //struct vec3d
 //{
@@ -80,10 +77,7 @@
 //private:
 //	mesh meshCube;
 //	mat4x4 matProj;
-//
 //	vec3d vCamera;
-//
-//
 //	float fTheta;
 //
 //	void MultiplyMatrixVector(vec3d& i, vec3d& o, mat4x4& m)
@@ -136,35 +130,8 @@
 //public:
 //	bool OnUserCreate() override
 //	{
-//		//meshCube.tris = {
-//
-//		//// SOUTH
-//		//{ 0.0f, 0.0f, 0.0f,    0.0f, 1.0f, 0.0f,    1.0f, 1.0f, 0.0f },
-//		//{ 0.0f, 0.0f, 0.0f,    1.0f, 1.0f, 0.0f,    1.0f, 0.0f, 0.0f },
-//
-//		//// EAST                                                      
-//		//{ 1.0f, 0.0f, 0.0f,    1.0f, 1.0f, 0.0f,    1.0f, 1.0f, 1.0f },
-//		//{ 1.0f, 0.0f, 0.0f,    1.0f, 1.0f, 1.0f,    1.0f, 0.0f, 1.0f },
-//
-//		//// NORTH                                                     
-//		//{ 1.0f, 0.0f, 1.0f,    1.0f, 1.0f, 1.0f,    0.0f, 1.0f, 1.0f },
-//		//{ 1.0f, 0.0f, 1.0f,    0.0f, 1.0f, 1.0f,    0.0f, 0.0f, 1.0f },
-//
-//		//// WEST                                                      
-//		//{ 0.0f, 0.0f, 1.0f,    0.0f, 1.0f, 1.0f,    0.0f, 1.0f, 0.0f },
-//		//{ 0.0f, 0.0f, 1.0f,    0.0f, 1.0f, 0.0f,    0.0f, 0.0f, 0.0f },
-//
-//		//// TOP                                                       
-//		//{ 0.0f, 1.0f, 0.0f,    0.0f, 1.0f, 1.0f,    1.0f, 1.0f, 1.0f },
-//		//{ 0.0f, 1.0f, 0.0f,    1.0f, 1.0f, 1.0f,    1.0f, 1.0f, 0.0f },
-//
-//		//// BOTTOM                                                    
-//		//{ 1.0f, 0.0f, 1.0f,    0.0f, 0.0f, 1.0f,    0.0f, 0.0f, 0.0f },
-//		//{ 1.0f, 0.0f, 1.0f,    0.0f, 0.0f, 0.0f,    1.0f, 0.0f, 0.0f },
-//
-//		//};
-//
-//		meshCube.LoadFromObjectFile("VideoShip.obj");
+//		
+//		meshCube.LoadFromObjectFile("class.obj");
 //
 //		// Projection Matrix
 //		float fNear = 0.1f;

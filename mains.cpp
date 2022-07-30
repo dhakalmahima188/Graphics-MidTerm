@@ -122,32 +122,7 @@ private:
 public:
 	bool OnUserCreate() override
 	{
-		//meshCube.tris = {
-		//	//// SOUTH
-		//{ 0.0f, 0.0f, 0.0f,    0.0f, 1.0f, 0.0f,    1.0f, 1.0f, 0.0f }, // yesle triangle initialize garxa
-		//{ 0.0f, 0.0f, 0.0f,    1.0f, 1.0f, 0.0f,    1.0f, 0.0f, 0.0f },
-
-		////// EAST                                                      
-		//{ 1.0f, 0.0f, 0.0f,    1.0f, 1.0f, 0.0f,    1.0f, 1.0f, 1.0f },
-		//{ 1.0f, 0.0f, 0.0f,    1.0f, 1.0f, 1.0f,    1.0f, 0.0f, 1.0f },
-
-		////// NORTH                                                     
-		//{ 1.0f, 0.0f, 1.0f,    1.0f, 1.0f, 1.0f,    0.0f, 1.0f, 1.0f },
-		//{ 1.0f, 0.0f, 1.0f,    0.0f, 1.0f, 1.0f,    0.0f, 0.0f, 1.0f },
-
-		////// WEST                                                      
-		//{ 0.0f, 0.0f, 1.0f,    0.0f, 1.0f, 1.0f,    0.0f, 1.0f, 0.0f },
-		//{ 0.0f, 0.0f, 1.0f,    0.0f, 1.0f, 0.0f,    0.0f, 0.0f, 0.0f },
-
-		////// TOP                                                       
-		//{ 0.0f, 1.0f, 0.0f,    0.0f, 1.0f, 1.0f,    1.0f, 1.0f, 1.0f },
-		//{ 0.0f, 1.0f, 0.0f,    1.0f, 1.0f, 1.0f,    1.0f, 1.0f, 0.0f },
-
-		////// BOTTOM                                                    
-		//{ 1.0f, 0.0f, 1.0f,    0.0f, 0.0f, 1.0f,    0.0f, 0.0f, 0.0f },
-		//{ 1.0f, 0.0f, 1.0f,    0.0f, 0.0f, 0.0f,    1.0f, 0.0f, 0.0f },
-
-		//};
+		
 		meshCube.LoadFromObjectFile("class.obj");
 
 		float fNear = 0.1f;
@@ -155,8 +130,7 @@ public:
 		float fFov = 90.0f; //field of view 90 degree;
 		float fAspectRatio = (float)ScreenHeight() / (float)ScreenWidth();
 		float fFovRad = 1.0f / tanf(fFov * 0.5f / 180.0f * 3.14159f); //degrees to radins 0.5 le khhai kina multiply gaero
-
-
+		
 		matProj.m[0][0] = fAspectRatio * fFovRad;
 		matProj.m[1][1] = fFovRad;
 		matProj.m[2][2] = fFar / (fFar - fNear);
@@ -253,7 +227,7 @@ public:
 				CHAR_INFO c = GetColour(dp);
 				triTranslated.col = c.Attributes;
 				triTranslated.sym = c.Char.UnicodeChar;//idk rato kina aairaxa
-			}
+	
 
 
 
@@ -282,7 +256,7 @@ public:
 			//store triangle for soorting
 			vecTrianglesToRaster.push_back(triProjected);
 
-				
+			}
 
 		/*	DrawTriangle(triProjected.p[0].x, triProjected.p[0].y,
 			triProjected.p[1].x, triProjected.p[1].y,
@@ -295,17 +269,11 @@ public:
 		sort(vecTrianglesToRaster.begin(), vecTrianglesToRaster.end()
 			, [](triangle& t1, triangle& t2) {
 
-								float z1 = (t1.p[0].z + t1.p[1].z + t1.p[2].z) / 3.0f;
-								float z2 = (t2.p[0].z + t2.p[1].z + t2.p[2].z) / 3.0f;
-								return z1 > z2;
+					float z1 = (t1.p[0].z + t1.p[1].z + t1.p[2].z) / 3.0f;
+					float z2 = (t2.p[0].z + t2.p[1].z + t2.p[2].z) / 3.0f;
+					return z1 > z2;
 
 			});
-
-
-
-
-
-
 
 				for (auto& triProjected : vecTrianglesToRaster)
 				{
