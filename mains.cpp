@@ -1,41 +1,32 @@
-//chalne
+//nachalne
 #include "olcConsoleGameEngine.h"
 using namespace std;
 
-
-struct vec3d
-{
+struct vec3d {
 	float x, y, z;
 };
-
-struct triangle
-{
+struct triangle {
 	vec3d p[3];
-};
 
-struct mesh
-{
-	vector<triangle> tris;
 };
-
-struct mat4x4
-{
+struct mesh {
+	vector<triangle>tris;
+};
+struct mat4x4 {
 	float m[4][4] = { 0 };
 };
 
-class olcEngine3D : public olcConsoleGameEngine
-{
+
+class olcEngine3D : public olcConsoleGameEngine {
+
 public:
-	olcEngine3D()
-	{
-		m_sAppName = L"3D Demo";
+	olcEngine3D() {
+		m_sAppName = L"3D Demo"; //unicode ko laagi
+
 	}
-
-
 private:
 	mesh meshCube;
 	mat4x4 matProj;
-
 	float fTheta;
 
 	void MultiplyMatrixVector(vec3d& i, vec3d& o, mat4x4& m)
@@ -50,44 +41,42 @@ private:
 			o.x /= w; o.y /= w; o.z /= w;
 		}
 	}
-
 public:
 	bool OnUserCreate() override
 	{
 		meshCube.tris = {
+			//// SOUTH
+		{ 0.0f, 0.0f, 0.0f,    0.0f, 1.0f, 0.0f,    1.0f, 1.0f, 0.0f }, // yesle triangle initialize garxa
+		{ 0.0f, 0.0f, 0.0f,    1.0f, 1.0f, 0.0f,    1.0f, 0.0f, 0.0f },
 
-			// SOUTH
-			{ 0.0f, 0.0f, 0.0f,    0.0f, 1.0f, 0.0f,    1.0f, 1.0f, 0.0f },
-			{ 0.0f, 0.0f, 0.0f,    1.0f, 1.0f, 0.0f,    1.0f, 0.0f, 0.0f },
+		//// EAST                                                      
+		{ 1.0f, 0.0f, 0.0f,    1.0f, 1.0f, 0.0f,    1.0f, 1.0f, 1.0f },
+		{ 1.0f, 0.0f, 0.0f,    1.0f, 1.0f, 1.0f,    1.0f, 0.0f, 1.0f },
 
-			// EAST                                                      
-			{ 1.0f, 0.0f, 0.0f,    1.0f, 1.0f, 0.0f,    1.0f, 1.0f, 1.0f },
-			{ 1.0f, 0.0f, 0.0f,    1.0f, 1.0f, 1.0f,    1.0f, 0.0f, 1.0f },
+		//// NORTH                                                     
+		{ 1.0f, 0.0f, 1.0f,    1.0f, 1.0f, 1.0f,    0.0f, 1.0f, 1.0f },
+		{ 1.0f, 0.0f, 1.0f,    0.0f, 1.0f, 1.0f,    0.0f, 0.0f, 1.0f },
 
-			// NORTH                                                     
-			{ 1.0f, 0.0f, 1.0f,    1.0f, 1.0f, 1.0f,    0.0f, 1.0f, 1.0f },
-			{ 1.0f, 0.0f, 1.0f,    0.0f, 1.0f, 1.0f,    0.0f, 0.0f, 1.0f },
+		//// WEST                                                      
+		{ 0.0f, 0.0f, 1.0f,    0.0f, 1.0f, 1.0f,    0.0f, 1.0f, 0.0f },
+		{ 0.0f, 0.0f, 1.0f,    0.0f, 1.0f, 0.0f,    0.0f, 0.0f, 0.0f },
 
-			// WEST                                                      
-			{ 0.0f, 0.0f, 1.0f,    0.0f, 1.0f, 1.0f,    0.0f, 1.0f, 0.0f },
-			{ 0.0f, 0.0f, 1.0f,    0.0f, 1.0f, 0.0f,    0.0f, 0.0f, 0.0f },
+		//// TOP                                                       
+		{ 0.0f, 1.0f, 0.0f,    0.0f, 1.0f, 1.0f,    1.0f, 1.0f, 1.0f },
+		{ 0.0f, 1.0f, 0.0f,    1.0f, 1.0f, 1.0f,    1.0f, 1.0f, 0.0f },
 
-			// TOP                                                       
-			{ 0.0f, 1.0f, 0.0f,    0.0f, 1.0f, 1.0f,    1.0f, 1.0f, 1.0f },
-			{ 0.0f, 1.0f, 0.0f,    1.0f, 1.0f, 1.0f,    1.0f, 1.0f, 0.0f },
-
-			// BOTTOM                                                    
-			{ 1.0f, 0.0f, 1.0f,    0.0f, 0.0f, 1.0f,    0.0f, 0.0f, 0.0f },
-			{ 1.0f, 0.0f, 1.0f,    0.0f, 0.0f, 0.0f,    1.0f, 0.0f, 0.0f },
+		//// BOTTOM                                                    
+		{ 1.0f, 0.0f, 1.0f,    0.0f, 0.0f, 1.0f,    0.0f, 0.0f, 0.0f },
+		{ 1.0f, 0.0f, 1.0f,    0.0f, 0.0f, 0.0f,    1.0f, 0.0f, 0.0f },
 
 		};
 
-		// Projection Matrix
 		float fNear = 0.1f;
 		float fFar = 1000.0f;
-		float fFov = 90.0f;
+		float fFov = 90.0f; //field of view 90 degree;
 		float fAspectRatio = (float)ScreenHeight() / (float)ScreenWidth();
-		float fFovRad = 1.0f / tanf(fFov * 0.5f / 180.0f * 3.14159f);
+		float fFovRad = 1.0f / tanf(fFov * 0.5f / 180.0f * 3.14159f); //degrees to radins 0.5 le khhai kina multiply gaero
+
 
 		matProj.m[0][0] = fAspectRatio * fFovRad;
 		matProj.m[1][1] = fFovRad;
@@ -96,9 +85,11 @@ public:
 		matProj.m[2][3] = 1.0f;
 		matProj.m[3][3] = 0.0f;
 
-		return true;
-	}
+		return  true;
 
+
+
+	}
 	bool OnUserUpdate(float fElapsedTime) override
 	{
 		// Clear Screen
@@ -172,16 +163,11 @@ public:
 
 		return true;
 	}
-
 };
-
-
-
-
-int main()
-{
+int main() {
 	olcEngine3D demo;
-	if (demo.ConstructConsole(256, 240, 3, 3))
+	if (demo.ConstructConsole(256, 240, 3, 3)) {
 		demo.Start();
+	}
 	return 0;
 }
