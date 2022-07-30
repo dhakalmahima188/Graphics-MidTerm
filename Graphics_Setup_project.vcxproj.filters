@@ -21,5 +21,8 @@
     <ClCompile Include="mains.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="github.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

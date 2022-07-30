@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="github.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mains.cpp" />
   </ItemGroup>
