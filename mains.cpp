@@ -2,7 +2,7 @@
 #include "olcConsoleGameEngine.h"
 #include <fstream>
 #include <strstream>
-#include <algorithm>
+#include <algorithm>  //sorting ko laagi
 using namespace std;
 
 
@@ -17,8 +17,8 @@ struct vec3d
 struct triangle
 {
 	vec3d p[3];
-	wchar_t sym;
-	short col;
+	wchar_t sym;  //16-bit wide character used to store Unicode
+	short col;  //short is 16 bits (int)
 };
 
 struct mesh
@@ -42,7 +42,7 @@ struct mesh
 			strstream s;
 			s << line;
 
-			char junk;
+			char junk; // to store v, vn ,f, blender file bata
 
 			if (line[0] == 'v')
 			{
@@ -72,7 +72,7 @@ class olcEngine3D : public olcConsoleGameEngine
 public:
 	olcEngine3D()
 	{
-		m_sAppName = L"3D Demo";
+		m_sAppName = L"MidTerm";
 	}
 
 
@@ -257,6 +257,8 @@ private:
 		return v;
 	}
 
+	//clipping ko laagi
+
 	vec3d Vector_IntersectPlane(vec3d& plane_p, vec3d& plane_n, vec3d& lineStart, vec3d& lineEnd)
 	{
 		plane_n = Vector_Normalise(plane_n);
@@ -271,7 +273,7 @@ private:
 
 	int Triangle_ClipAgainstPlane(vec3d plane_p, vec3d plane_n, triangle& in_tri, triangle& out_tri1, triangle& out_tri2)
 	{
-		// Make sure plane normal is indeed normal
+		
 		plane_n = Vector_Normalise(plane_n);
 
 		// Return signed shortest distance from point to plane, plane normal must be normalised
@@ -509,6 +511,8 @@ public:
 			vec3d vCameraRay = Vector_Sub(triTransformed.p[0], vCamera);
 
 			// If ray is aligned with normal, then triangle is visible
+		   //surface dekhina lai normal ra hamro aakha ko sight opposite direction ma huna parxa
+
 			if (Vector_DotProduct(normal, vCameraRay) < 0.0f)
 			{
 				// Illumination
@@ -563,6 +567,9 @@ public:
 					triProjected.p[2].y *= -1.0f;
 
 					// Offset verts into visible normalised space
+					// Offset into the screen
+					//natra screen ma dekhinna
+					//paxadi lageko
 					vec3d vOffsetView = { 1,1,0 };
 					triProjected.p[0] = Vector_Add(triProjected.p[0], vOffsetView);
 					triProjected.p[1] = Vector_Add(triProjected.p[1], vOffsetView);
