@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="ref.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mains.cpp">
@@ -25,6 +25,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="github2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="manual_functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="backup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="backup.cpp" />
     <ClCompile Include="github.cpp" />
     <ClCompile Include="github2.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ref.cpp" />
     <ClCompile Include="mains.cpp" />
+    <ClCompile Include="manual_functions.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
