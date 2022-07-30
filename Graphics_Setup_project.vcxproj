@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="github.cpp" />
+    <ClCompile Include="github2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mains.cpp" />
   </ItemGroup>
