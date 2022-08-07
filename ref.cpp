@@ -31,10 +31,10 @@ int main(int argc, char** argv) {
 	vec3d vCamera = { 0,0,0 };
 	vec3d vlookDir;
 
-	meshCube.LoadFromObjectFile("projectnrityanewmid3.obj");
-	wall.LoadFromObjectFile("DhungedharaWall.obj");
-	water.LoadFromObjectFile("Water.obj");
-	ground.LoadFromObjectFile("Ground.obj");
+	//meshCube.LoadFromObjectFile("checkfile.obj");
+	wall.LoadFromObjectFile("wall.obj");
+	water.LoadFromObjectFile("board.obj");
+	ground.LoadFromObjectFile("table_chair.obj");
 	float fTheta = 0;
 
 	// Projection Matrix
