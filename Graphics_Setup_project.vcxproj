@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="backup.cpp" />
+    <ClCompile Include="check.cpp" />
     <ClCompile Include="mains.cpp" />
     <ClCompile Include="manual_functions.cpp" />
   </ItemGroup>

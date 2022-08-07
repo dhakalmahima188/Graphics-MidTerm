@@ -348,10 +348,10 @@ private:
 			// represent a quad with two new triangles
 
 			// Copy appearance info to new triangles
-			out_tri1.col = in_tri.col;
+			out_tri1.col = FG_GREEN;
 			out_tri1.sym = in_tri.sym;
 
-			out_tri2.col = in_tri.col;
+			out_tri2.col = FG_BLUE;
 			out_tri2.sym = in_tri.sym;
 
 			// The first triangle consists of the two inside points and a new
@@ -648,7 +648,7 @@ public:
 			for (auto& t : listTriangles)
 			{
 				FillTriangle(t.p[0].x, t.p[0].y, t.p[1].x, t.p[1].y, t.p[2].x, t.p[2].y, t.sym, t.col);
-				//DrawTriangle(t.p[0].x, t.p[0].y, t.p[1].x, t.p[1].y, t.p[2].x, t.p[2].y, PIXEL_SOLID, FG_BLACK);
+				DrawTriangle(t.p[0].x, t.p[0].y, t.p[1].x, t.p[1].y, t.p[2].x, t.p[2].y, PIXEL_SOLID, FG_GREEN);
 			}
 		}
 
