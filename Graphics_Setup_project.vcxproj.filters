@@ -27,7 +27,7 @@
     <ClCompile Include="check.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ref.cpp">
+    <ClCompile Include="mid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

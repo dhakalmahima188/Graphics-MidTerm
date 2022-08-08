@@ -23,7 +23,7 @@
     <ClCompile Include="check.cpp" />
     <ClCompile Include="mains.cpp" />
     <ClCompile Include="manual_functions.cpp" />
-    <ClCompile Include="ref.cpp" />
+    <ClCompile Include="mid.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
